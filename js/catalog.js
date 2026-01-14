@@ -226,7 +226,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // ============================================================
   // CAMBIO DE VISTA (lista/cuadrícula)
   // ============================================================
-
+btnCambiarVista.style.position = "fixed";
+btnCambiarVista.style.left = "calc(100% - 80px)";
+btnCambiarVista.style.top = "calc(100% - 80px)";
+  
 btnCambiarVista.addEventListener("click", () => {
   if (movido) return; // si se arrastró, NO cambiar vista
 
@@ -277,3 +280,4 @@ document.addEventListener("mouseup", () => {
 
 
 });
+
