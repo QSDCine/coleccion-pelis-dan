@@ -1,0 +1,16 @@
+{
+  "id": 000001,
+  "titulo": "Blade Runner",
+  "año": 1982,
+  "director": ["Ridley Scott"],
+  "generos": ["Ciencia ficción", "Noir"],
+  "formato": "Blu-Ray",
+  "edicionEspecial": true,
+  "saga": {
+    "esParte": true,
+    "numero": 1,
+    "totalsaga": 2
+  },
+  "notas": "Edición Steelbook 20º aniversario",
+  "portada": "/img/bladerunner1.jpg"
+}
