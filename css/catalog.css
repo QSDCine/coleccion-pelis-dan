@@ -162,8 +162,6 @@ header.header {
 
 .btn-flotante {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
   background: #222;
   color: #fff;
   border: none;
@@ -174,16 +172,10 @@ header.header {
   z-index: 999;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 
-  /* FIXES IMPORTANTES */
+  /* FIXES */
   user-select: none;
   -webkit-user-drag: none;
   -webkit-tap-highlight-color: transparent;
   touch-action: none;
-  transform: none !important;
 }
 
-.btn-flotante:active {
-  cursor: grabbing;
-  transform: none !important;
-  scale: 1 !important;
-}
