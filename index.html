@@ -54,7 +54,11 @@
   auth.onAuthStateChanged(user => {
     if (!user) {
       console.log("No hay usuario, iniciando login...");
-      signInWithRedirect(auth, provider);
+      provider.setCustomParameters({
+  redirect_uri: "https://qsdcine.github.io/coleccion-pelis-dan/redirect.html"
+});
+
+signInWithRedirect(auth, provider);
     } else {
       console.log("Usuario autenticado:", user.email);
     }
@@ -66,6 +70,7 @@
 </body>
 
 </html>
+
 
 
 
