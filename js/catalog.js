@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let peliculas = [];          // Películas reales desde Firestore
   let peliculasFiltradas = []; // Resultado tras filtros/búsqueda/ordenación
+ 
+
 
   const catalogo = document.getElementById("catalogo");
   const inputBusqueda = document.getElementById("input-busqueda");
@@ -225,41 +227,46 @@ document.addEventListener("DOMContentLoaded", () => {
   // CAMBIO DE VISTA (lista/cuadrícula)
   // ============================================================
 
-  btnCambiarVista.addEventListener("click", () => {
-    vistaActual = vistaActual === "lista" ? "cuadricula" : "lista";
+btnCambiarVista.addEventListener("click", () => {
+  if (movido) return; // si se arrastró, NO cambiar vista
 
-    catalogo.classList.toggle("vista-lista");
-    catalogo.classList.toggle("vista-cuadricula");
+  vistaActual = vistaActual === "lista" ? "cuadricula" : "lista";
 
-    renderizarCatalogo();
-  });
+  catalogo.classList.toggle("vista-lista");
+  catalogo.classList.toggle("vista-cuadricula");
+
+  renderizarCatalogo();
+});
 
 
   // ============================================================
   // BOTÓN FLOTANTE ARRASTRABLE
   // ============================================================
-
+   let movido = false;
   let arrastrando = false;
   let offsetX = 0;
   let offsetY = 0;
 
-  btnCambiarVista.addEventListener("mousedown", e => {
-    arrastrando = true;
-    offsetX = e.clientX - btnCambiarVista.offsetLeft;
-    offsetY = e.clientY - btnCambiarVista.offsetTop;
-  });
+ btnCambiarVista.addEventListener("mousedown", e => {
+  arrastrando = true;
+  movido = false;
+  offsetX = e.clientX - btnCambiarVista.offsetLeft;
+  offsetY = e.clientY - btnCambiarVista.offsetTop;
+});
 
-  document.addEventListener("mousemove", e => {
-    if (!arrastrando) return;
+document.addEventListener("mousemove", e => {
+  if (!arrastrando) return;
 
-    btnCambiarVista.style.left = `${e.clientX - offsetX}px`;
-    btnCambiarVista.style.top = `${e.clientY - offsetY}px`;
-    btnCambiarVista.style.position = "fixed";
-  });
+  movido = true;
 
-  document.addEventListener("mouseup", () => {
-    arrastrando = false;
-  });
+  btnCambiarVista.style.left = `${e.clientX - offsetX}px`;
+  btnCambiarVista.style.top = `${e.clientY - offsetY}px`;
+  btnCambiarVista.style.position = "fixed";
+});
+
+document.addEventListener("mouseup", () => {
+  arrastrando = false;
+});
 
 
   // ============================================================
@@ -267,5 +274,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // ============================================================
 
   cargarPeliculas();
+
 
 });
