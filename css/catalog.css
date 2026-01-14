@@ -174,3 +174,14 @@ header.header {
   z-index: 999;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
+.btn-flotante:active {
+  transform: none;
+  scale: 1;
+}
+.btn-flotante {
+  touch-action: none;
+}
+.btn-flotante {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
