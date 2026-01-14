@@ -29,6 +29,24 @@
   </main>
  <button id="toggle-theme" class="btn-theme" type="button">🌙</button>
 
+ <script type="module">
+  import { getAuth, signInWithPopup, GoogleAuthProvider }
+    from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+  const auth = getAuth();
+  const provider = new GoogleAuthProvider();
+
+  signInWithPopup(auth, provider)
+    .then(result => {
+      console.log("Autenticado como:", result.user.email);
+    })
+    .catch(error => {
+      console.error("Error al autenticar:", error);
+    });
+</script>
+
   <script src="js/index.js"></script>
+  
 </body>
+
 </html>
