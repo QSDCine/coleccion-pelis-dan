@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
       totalsaga: selectEsParteSaga.value === "true" ? Number(inputTotalSaga.value) : null
     };
 
-    const portadaFinal = inputPortada.value.trim() || "/img/default.jpg";
+    const portadaFinal = inputPortada.value.trim() || "https://qsdcine.github.io/coleccion-pelis-dan/img/default.jpg";
 
     const nuevaPelicula = {
       titulo: inputTitulo.value.trim(),
@@ -100,5 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Error al guardar la película.");
     }
   });
+
 
 });
