@@ -35,7 +35,16 @@ document.addEventListener("DOMContentLoaded", () => {
   if (temaGuardado === "oscuro") {
     document.body.classList.add("oscuro");
   }
+  
+// ============================================================
+// LECTURA DE PARÁMETRO "titulo" DESDE LA URL
+// ============================================================
+const params = new URLSearchParams(window.location.search);
+const tituloBuscado = params.get("titulo");
 
+if (tituloBuscado) {
+  inputBusqueda.value = tituloBuscado;
+}
 
   // ============================================================
   // CARGA REAL DESDE FIRESTORE
@@ -53,7 +62,13 @@ document.addEventListener("DOMContentLoaded", () => {
       peliculasFiltradas = [...peliculas];
 
       rellenarFiltros();
-      renderizarCatalogo();
+// Si venimos desde movie.html con ?titulo=...
+if (tituloBuscado) {
+  aplicarFiltros(); // esto ejecuta la búsqueda automáticamente
+} else {
+  renderizarCatalogo();
+}
+
 
     } catch (error) {
       console.error("Error al cargar películas:", error);
@@ -302,6 +317,7 @@ document.addEventListener("touchend", terminarMovimiento);
 
 
 });
+
 
 
 
