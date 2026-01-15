@@ -4,7 +4,7 @@
 
 body.oscuro {
   background: #111;
-  color: #eee;
+  color: #fff;
 }
 
 /* Enlaces, textos y elementos generales */
@@ -15,7 +15,7 @@ body.oscuro h1,
 body.oscuro h2,
 body.oscuro h3,
 body.oscuro h4 {
-  color: #eee;
+  color: #fff;
 }
 
 /* Contenedores blancos típicos */
@@ -27,7 +27,7 @@ body.oscuro .datos,
 body.oscuro .acciones-header,
 body.oscuro .acciones-secundarias {
   background: #222 !important;
-  color: #eee !important;
+  color: #fff !important;
 }
 
 /* Inputs y selects */
@@ -49,3 +49,16 @@ body.oscuro button {
 body.oscuro button:hover {
   background: #444;
 }
+
+/* Secciones del catálogo */
+body.oscuro .busqueda,
+body.oscuro .filtros,
+body.oscuro .filtro {
+  background: #222 !important;
+  color: #fff !important;
+}
+
+body.oscuro input::placeholder {
+  color: #bbb;
+}
+
