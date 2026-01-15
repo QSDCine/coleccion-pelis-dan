@@ -308,6 +308,29 @@ btnCambiarVista.addEventListener("touchstart", iniciarMovimiento);
 document.addEventListener("touchmove", mover);
 document.addEventListener("touchend", terminarMovimiento);
 
+  // ============================================================
+// BOTONES DEL HEADER
+// ============================================================
+
+document.getElementById("btn-volver-index").addEventListener("click", () => {
+  window.location.href = "index.html";
+});
+
+document.getElementById("btn-reset").addEventListener("click", () => {
+  // Limpiar búsqueda
+  inputBusqueda.value = "";
+
+  // Resetear selects
+  filtroGenero.value = "";
+  filtroFormato.value = "";
+  filtroDirector.value = "";
+  filtroAño.value = "";
+  ordenarPor.value = "titulo";
+
+  // Restaurar catálogo completo
+  peliculasFiltradas = [...peliculas];
+  renderizarCatalogo();
+});
 
   // ============================================================
   // INICIO
@@ -317,6 +340,7 @@ document.addEventListener("touchend", terminarMovimiento);
 
 
 });
+
 
 
 
