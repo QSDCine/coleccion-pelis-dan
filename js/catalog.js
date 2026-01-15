@@ -96,26 +96,27 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // ============================================================
-  // BÚSQUEDA
-  // ============================================================
+// ============================================================
+// BÚSQUEDA
+// ============================================================
 
-  inputBusqueda.addEventListener("input", aplicarFiltros);
+inputBusqueda.addEventListener("input", aplicarFiltros);
 
-  function normalizar(texto) {
+function normalizar(texto) {
   return texto
     .toLowerCase()
     .normalize("NFD")                 // separa acentos
     .replace(/[\u0300-\u036f]/g, "")  // elimina acentos
-    .replace(/[^a-z0-9 ]/g, "")       // elimina símbolos (como & / - ' etc.)
+    .replace(/[^a-z0-9 ]/g, "")       // elimina símbolos (& / - ' etc.)
     .trim();
 }
 
 function coincideBusqueda(pelicula, texto) {
-  const tBuscado = normalizar(texto);
   const tTitulo = normalizar(pelicula.titulo);
+  const tokens = normalizar(texto).split(" ").filter(t => t.length > 0);
 
-  return tTitulo.includes(tBuscado);
+  // Cada palabra buscada debe aparecer en el título, en cualquier orden
+  return tokens.every(t => tTitulo.includes(t));
 }
 
 
@@ -301,6 +302,7 @@ document.addEventListener("touchend", terminarMovimiento);
 
 
 });
+
 
 
 
