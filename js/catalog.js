@@ -102,16 +102,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   inputBusqueda.addEventListener("input", aplicarFiltros);
 
-  function coincideBusqueda(pelicula, texto) {
-    texto = texto.toLowerCase();
+  function normalizar(texto) {
+  return texto
+    .toLowerCase()
+    .normalize("NFD")                 // separa acentos
+    .replace(/[\u0300-\u036f]/g, "")  // elimina acentos
+    .replace(/[^a-z0-9 ]/g, "")       // elimina símbolos (como & / - ' etc.)
+    .trim();
+}
 
-    return (
-      pelicula.titulo.toLowerCase().includes(texto) ||
-      pelicula.año.toString().includes(texto) ||
-      pelicula.director.some(d => d.toLowerCase().includes(texto)) ||
-      pelicula.generos.some(g => g.toLowerCase().includes(texto))
-    );
-  }
+function coincideBusqueda(pelicula, texto) {
+  const tBuscado = normalizar(texto);
+  const tTitulo = normalizar(pelicula.titulo);
+
+  return tTitulo.includes(tBuscado);
+}
 
 
   // ============================================================
@@ -296,5 +301,6 @@ document.addEventListener("touchend", terminarMovimiento);
 
 
 });
+
 
 
