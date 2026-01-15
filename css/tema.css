@@ -14,7 +14,8 @@ body.oscuro span,
 body.oscuro h1,
 body.oscuro h2,
 body.oscuro h3,
-body.oscuro h4 {
+body.oscuro h4,
+body.oscuro strong {
   color: #fff;
 }
 
