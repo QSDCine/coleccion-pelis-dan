@@ -242,34 +242,50 @@ btnCambiarVista.addEventListener("click", () => {
 });
 
 
-  // ============================================================
-  // BOTÓN FLOTANTE ARRASTRABLE
-  // ============================================================
-   let movido = false;
-  let arrastrando = false;
-  let offsetX = 0;
-  let offsetY = 0;
+ // ============================================================
+// BOTÓN FLOTANTE ARRASTRABLE (PC + MÓVIL)
+// ============================================================
 
- btnCambiarVista.addEventListener("mousedown", e => {
+let movido = false;
+let arrastrando = false;
+let offsetX = 0;
+let offsetY = 0;
+
+function iniciarMovimiento(e) {
   arrastrando = true;
   movido = false;
-  offsetX = e.clientX - btnCambiarVista.offsetLeft;
-  offsetY = e.clientY - btnCambiarVista.offsetTop;
-});
 
-document.addEventListener("mousemove", e => {
+  const punto = e.touches ? e.touches[0] : e;
+
+  offsetX = punto.clientX - btnCambiarVista.offsetLeft;
+  offsetY = punto.clientY - btnCambiarVista.offsetTop;
+}
+
+function mover(e) {
   if (!arrastrando) return;
+
+  const punto = e.touches ? e.touches[0] : e;
 
   movido = true;
 
-  btnCambiarVista.style.left = `${e.clientX - offsetX}px`;
-  btnCambiarVista.style.top = `${e.clientY - offsetY}px`;
+  btnCambiarVista.style.left = `${punto.clientX - offsetX}px`;
+  btnCambiarVista.style.top = `${punto.clientY - offsetY}px`;
   btnCambiarVista.style.position = "fixed";
-});
+}
 
-document.addEventListener("mouseup", () => {
+function terminarMovimiento() {
   arrastrando = false;
-});
+}
+
+// Ratón
+btnCambiarVista.addEventListener("mousedown", iniciarMovimiento);
+document.addEventListener("mousemove", mover);
+document.addEventListener("mouseup", terminarMovimiento);
+
+// Táctil
+btnCambiarVista.addEventListener("touchstart", iniciarMovimiento);
+document.addEventListener("touchmove", mover);
+document.addEventListener("touchend", terminarMovimiento);
 
 
   // ============================================================
@@ -280,4 +296,5 @@ document.addEventListener("mouseup", () => {
 
 
 });
+
 
