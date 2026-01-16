@@ -160,16 +160,23 @@ body {
 .btn-saga {
   margin-top: 10px;
   padding: 10px 15px;
-  background: #6c5ce7; /* morado elegante */
+  background: #6c5ce7;
   color: #fff;
   border: none;
   border-radius: 6px;
   font-size: 1rem;
   cursor: pointer;
   transition: 0.2s ease;
-  display: none;
-
 }
+
+.btn-saga:hover {
+  background: #5a4bd1;
+}
+
+.oculto {
+  display: none;
+}
+
 
 .btn-saga:hover {
   background: #5a4bd1;
@@ -179,4 +186,5 @@ body {
   display: block;
   margin: 10px auto;
 }
+
 
