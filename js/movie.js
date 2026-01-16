@@ -83,7 +83,7 @@ if (
   // BOTÓN "VER OTRAS EDICIONES"
   // ============================================================
   document.getElementById("btn-otras-ediciones").addEventListener("click", () => {
-    window.location.href = `catalog.html?titulo=${encodeURIComponent(pelicula.titulo)}`;
+    window.location.href = `catalog.html?edicionExacta=${encodeURIComponent(pelicula.titulo)}`;
   });
 
   // ============================================================
@@ -120,6 +120,7 @@ if (
 
 
 });
+
 
 
 
