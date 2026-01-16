@@ -62,14 +62,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ============================================================
 // BOTÓN "VER SAGA"
 // ============================================================
+const btnSaga = document.getElementById("btn-ver-saga");
+
 if (pelicula.saga.esParte && pelicula.saga.nombre && pelicula.saga.nombre.trim() !== "") {
-  const btnSaga = document.getElementById("btn-ver-saga");
-  btnSaga.classList.remove("btn-saga");
-
-
+  btnSaga.classList.remove("btn-saga"); // mostrar
   btnSaga.addEventListener("click", () => {
     window.location.href = `catalog.html?saga=${encodeURIComponent(pelicula.saga.nombre)}`;
   });
+} else {
+  btnSaga.classList.add("btn-saga"); // ocultar
 }
 
   // ============================================================
@@ -113,4 +114,5 @@ if (pelicula.saga.esParte && pelicula.saga.nombre && pelicula.saga.nombre.trim()
 
 
 });
+
 
