@@ -174,7 +174,7 @@ body {
 }
 
 .oculto {
-  display: none;
+  display: none !important;
 }
 
 
@@ -186,5 +186,6 @@ body {
   display: block;
   margin: 10px auto;
 }
+
 
 
