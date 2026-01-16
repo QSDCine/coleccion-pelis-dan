@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // ============================================================
 const params = new URLSearchParams(window.location.search);
 const tituloBuscado = params.get("titulo");
+  const sagaBuscada = params.get("saga");
 
 if (tituloBuscado) {
   inputBusqueda.value = tituloBuscado;
@@ -62,6 +63,17 @@ if (tituloBuscado) {
       peliculasFiltradas = [...peliculas];
 
       rellenarFiltros();
+      
+// Si venimos desde movie.html con ?saga=...
+if (sagaBuscada) {
+  peliculasFiltradas = peliculas
+    .filter(p => p.saga.esParte && p.saga.nombre === sagaBuscada)
+    .sort((a, b) => a.saga.numero - b.saga.numero);
+
+  renderizarCatalogo();
+  return; // importante: no seguir con el flujo normal
+}
+      
 // Si venimos desde movie.html con ?titulo=...
 if (tituloBuscado) {
   aplicarFiltros(); // esto ejecuta la búsqueda automáticamente
@@ -340,6 +352,7 @@ document.getElementById("btn-reset").addEventListener("click", () => {
 
 
 });
+
 
 
 
