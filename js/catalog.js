@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const params = new URLSearchParams(window.location.search);
 const tituloBuscado = params.get("titulo");
   const sagaBuscada = params.get("saga");
+  const edicionExacta = params.get("edicionExacta");
 
 if (tituloBuscado) {
   inputBusqueda.value = tituloBuscado;
@@ -63,6 +64,16 @@ if (tituloBuscado) {
       peliculasFiltradas = [...peliculas];
 
       rellenarFiltros();
+      
+      // Si venimos desde movie.html con ?edicionExacta=...
+if (edicionExacta) {
+  peliculasFiltradas = peliculas.filter(
+    p => p.titulo === edicionExacta
+  );
+
+  renderizarCatalogo();
+  return;
+}
       
 // Si venimos desde movie.html con ?saga=...
 if (sagaBuscada) {
@@ -352,6 +363,7 @@ document.getElementById("btn-reset").addEventListener("click", () => {
 
 
 });
+
 
 
 
