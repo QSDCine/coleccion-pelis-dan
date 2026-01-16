@@ -64,7 +64,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 // ============================================================
 if (pelicula.saga.esParte && pelicula.saga.nombre && pelicula.saga.nombre.trim() !== "") {
   const btnSaga = document.getElementById("btn-ver-saga");
-  btnSaga.style.display = "block";
+  btnSaga.classList.remove("btn-saga");
+
 
   btnSaga.addEventListener("click", () => {
     window.location.href = `catalog.html?saga=${encodeURIComponent(pelicula.saga.nombre)}`;
@@ -112,3 +113,4 @@ if (pelicula.saga.esParte && pelicula.saga.nombre && pelicula.saga.nombre.trim()
 
 
 });
+
