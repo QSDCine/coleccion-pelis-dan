@@ -63,3 +63,11 @@ body.oscuro input::placeholder {
   color: #bbb;
 }
 
+body.oscuro .btn-saga {
+  background: #4b3bbd;
+  color: #fff;
+}
+
+body.oscuro .btn-saga:hover {
+  background: #3d2fa3;
+}
