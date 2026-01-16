@@ -153,4 +153,23 @@ body {
 
 .acciones-secundarias .btn-eliminar:hover {
   background: #b02525;
+
+}
+
+
+.btn-saga {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: #6c5ce7; /* morado elegante */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+  width: 100%;
+}
+
+.btn-saga:hover {
+  background: #5a4bd1;
 }
