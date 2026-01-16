@@ -173,19 +173,14 @@ body {
   background: #5a4bd1;
 }
 
-.oculto {
-  display: none !important;
-}
-
-
-.btn-saga:hover {
-  background: #5a4bd1;
-}
 
 .footer button {
   display: block;
   margin: 10px auto;
 }
 
+.footer .oculto {
+  display: none;
+}
 
 
