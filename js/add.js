@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const selectEsParteSaga = document.getElementById("esParteSaga");
 
   const camposSaga = document.getElementById("campos-saga");
+  const inputNombreSaga = document.getElementById("nombreSaga");
   const inputNumeroSaga = document.getElementById("numeroSaga");
   const inputTotalSaga = document.getElementById("totalSaga");
 
@@ -34,19 +35,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // ============================
   // MOSTRAR/OCULTAR SAGA
   // ============================
-  selectEsParteSaga.addEventListener("change", () => {
-    if (selectEsParteSaga.value === "true") {
-      camposSaga.style.display = "block";
-      inputNumeroSaga.required = true;
-      inputTotalSaga.required = true;
-    } else {
-      camposSaga.style.display = "none";
-      inputNumeroSaga.required = false;
-      inputTotalSaga.required = false;
-      inputNumeroSaga.value = "";
-      inputTotalSaga.value = "";
-    }
-  });
+selectEsParteSaga.addEventListener("change", () => {
+  if (selectEsParteSaga.value === "true") {
+    camposSaga.style.display = "block";
+    inputNombreSaga.required = true;
+    inputNumeroSaga.required = true;
+    inputTotalSaga.required = true;
+  } else {
+    camposSaga.style.display = "none";
+    inputNombreSaga.required = false;
+    inputNumeroSaga.required = false;
+    inputTotalSaga.required = false;
+    inputNombreSaga.value = "";
+    inputNumeroSaga.value = "";
+    inputTotalSaga.value = "";
+  }
+});
 
   // ============================
   // GUARDAR PELÍCULA
@@ -71,11 +75,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const edicionEspecial = selectEdicionEspecial.value === "true";
 
-    const saga = {
-      esParte: selectEsParteSaga.value === "true",
-      numero: selectEsParteSaga.value === "true" ? Number(inputNumeroSaga.value) : null,
-      totalsaga: selectEsParteSaga.value === "true" ? Number(inputTotalSaga.value) : null
-    };
+const saga = {
+  esParte: selectEsParteSaga.value === "true",
+  nombre: selectEsParteSaga.value === "true" ? inputNombreSaga.value.trim() : "",
+  numero: selectEsParteSaga.value === "true" ? Number(inputNumeroSaga.value) : null,
+  totalsaga: selectEsParteSaga.value === "true" ? Number(inputTotalSaga.value) : null
+};
 
     const portadaFinal = inputPortada.value.trim() || "https://qsdcine.github.io/coleccion-pelis-dan/img/default.jpg";
 
@@ -103,3 +108,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
+
