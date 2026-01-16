@@ -60,6 +60,18 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("notas").textContent = pelicula.notas;
 
   // ============================================================
+// BOTÓN "VER SAGA"
+// ============================================================
+if (pelicula.saga.esParte && pelicula.saga.nombre && pelicula.saga.nombre.trim() !== "") {
+  const btnSaga = document.getElementById("btn-ver-saga");
+  btnSaga.style.display = "block";
+
+  btnSaga.addEventListener("click", () => {
+    window.location.href = `catalog.html?saga=${encodeURIComponent(pelicula.saga.nombre)}`;
+  });
+}
+
+  // ============================================================
   // BOTÓN "VER OTRAS EDICIONES"
   // ============================================================
   document.getElementById("btn-otras-ediciones").addEventListener("click", () => {
@@ -97,5 +109,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       alert("Error al eliminar la película.");
     }
   });
+
 
 });
