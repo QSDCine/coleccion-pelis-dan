@@ -34,10 +34,16 @@
   <script type="module" src="js/firebase.js"></script>
 
   <script src="js/index.js"></script>
-  
+  <script>
+  if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/service-worker.js")
+    .catch(err => console.error("SW error:", err));
+}
+    </script>
 </body>
 
 </html>
+
 
 
 
