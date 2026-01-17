@@ -40,9 +40,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   const selectEsParteSaga = document.getElementById("esParteSaga");
 
   const camposSaga = document.getElementById("campos-saga");
+  const inputNombreSaga = document.getElementById("nombreSaga");
   const inputNumeroSaga = document.getElementById("numeroSaga");
   const inputTotalSaga = document.getElementById("totalSaga");
-
+ 
   const inputNotas = document.getElementById("notas");
   const inputPortada = document.getElementById("portada");
 
@@ -75,8 +76,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (pelicula.saga.esParte) {
     selectEsParteSaga.value = "true";
     camposSaga.style.display = "block";
+    inputNombreSaga.value = pelicula.saga.nombre;
     inputNumeroSaga.value = pelicula.saga.numero;
     inputTotalSaga.value = pelicula.saga.totalsaga;
+    inputNombreSaga.required = true;
     inputNumeroSaga.required = true;
     inputTotalSaga.required = true;
   } else {
@@ -124,11 +127,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const edicionEspecial = selectEdicionEspecial.value === "true";
 
-    const saga = {
-      esParte: selectEsParteSaga.value === "true",
-      numero: selectEsParteSaga.value === "true" ? Number(inputNumeroSaga.value) : null,
-      totalsaga: selectEsParteSaga.value === "true" ? Number(inputTotalSaga.value) : null
-    };
+const saga = {
+  esParte: selectEsParteSaga.value === "true",
+  nombre: selectEsParteSaga.value === "true" ? inputNombreSaga.value.trim() : "",
+  numero: selectEsParteSaga.value === "true" ? Number(inputNumeroSaga.value) : null,
+  totalsaga: selectEsParteSaga.value === "true" ? Number(inputTotalSaga.value) : null
+};
 
     const portadaFinal = inputPortada.value.trim() || pelicula.portada;
 
@@ -147,5 +151,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     alert("Cambios guardados correctamente.");
     window.location.href = `movie.html?id=${idPelicula}`;
   });
+
 
 });
