@@ -105,7 +105,16 @@ const saga = {
       alert("Error al guardar la película.");
     }
   });
+function mostrarToast(mensaje) {
+  const toast = document.getElementById("toast");
+  toast.textContent = mensaje;
+  toast.classList.add("mostrar");
 
+  setTimeout(() => {
+    toast.classList.remove("mostrar");
+  }, 2500);
+}
 
 });
+
 
