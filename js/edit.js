@@ -152,5 +152,14 @@ const saga = {
     window.location.href = `movie.html?id=${idPelicula}`;
   });
 
+function mostrarToast(mensaje) {
+  const toast = document.getElementById("toast");
+  toast.textContent = mensaje;
+  toast.classList.add("mostrar");
 
+  setTimeout(() => {
+    toast.classList.remove("mostrar");
+  }, 2500);
+}
 });
+
