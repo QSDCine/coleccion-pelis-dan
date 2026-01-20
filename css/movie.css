@@ -32,7 +32,7 @@ body {
 =========================== */
 
 .movie-container {
-  padding: 20px;
+  padding: 5px 20px 1px 20px;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -80,7 +80,7 @@ body {
 
 .footer {
   text-align: center;
-  padding: 20px;
+  padding: 1px 20px 1px 20px;
 }
 
 .btn-otras {
@@ -103,7 +103,7 @@ body {
 =========================== */
 
 .acciones-secundarias {
-  margin-top: 25px;
+  margin-top: 5px;
   display: flex;
   flex-direction: column;
   gap: 10px;
