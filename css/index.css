@@ -148,3 +148,20 @@ body.oscuro .btn-theme {
 body.oscuro .btn-theme {
   background: #222;
 }
+
+.btn-mini {
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  background: #9b5de5;   /* morado elegante */
+  color: #fff;
+  margin: 20px auto;     /* centrado y con aire */
+  display: block;        /* para que respete el centrado */
+  max-width: 300px;      /* igual que los otros botones */
+}
+.btn-mini:hover {
+  background: #7a3fcf;   /* morado más oscuro al pasar el ratón */
+}
