@@ -110,6 +110,7 @@ header.header {
   height: 75px;
   object-fit: cover;
   border-radius: 4px;
+  image-rendering: auto;
 }
 
 .pelicula-lista .info {
@@ -207,4 +208,5 @@ header.header {
 .btn-mini:hover {
   opacity: 0.8;
 }
+
 
