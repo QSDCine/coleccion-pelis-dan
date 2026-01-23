@@ -89,6 +89,8 @@ if (
 ) {
   btnSaga.classList.remove("oculto"); // mostrar
   btnSaga.addEventListener("click", () => {
+    // Guardar saga temporalmente mientras navegas
+    sessionStorage.setItem("catalogo_saga", pelicula.saga.nombre);
     window.location.href =
       `catalog.html?saga=${encodeURIComponent(pelicula.saga.nombre)}`;
   });
@@ -140,6 +142,7 @@ document.getElementById("btn-volver-top").addEventListener("click", () => {
 });
 
 });
+
 
 
 
