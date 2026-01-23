@@ -1,4 +1,4 @@
-const CACHE_NAME = "pelis-cache-v1";
+const CACHE_NAME = "pelis-cache-v2";
 
 const ASSETS = [
   "/",
@@ -23,7 +23,11 @@ const ASSETS = [
   "/js/tema.js",
   "/img/icon-192.png",
   "/img/icon-512.png",
-  "/img/default.jpg"
+  "/img/default.jpg",
+  "/login.html",
+  "/js/login.js",
+  "/js/auth-state.js",
+  "/css/login.css"
 ];
 
 // INSTALACIÓN
