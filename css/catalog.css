@@ -152,6 +152,7 @@ header.header {
   height: 200px;
   object-fit: cover;
   border-radius: 4px;
+  image-rendering: auto
 }
 
 .pelicula-cuadricula .titulo {
@@ -208,5 +209,6 @@ header.header {
 .btn-mini:hover {
   opacity: 0.8;
 }
+
 
 
