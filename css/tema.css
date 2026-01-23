@@ -92,3 +92,11 @@ body.oscuro .btn-saga:hover {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+
+.solo-admin {
+  display: none;
+}
+
+.admin .solo-admin {
+  display: block;
+}
