@@ -133,32 +133,35 @@ document.addEventListener("DOMContentLoaded", () => {
       // FLUJOS ESPECIALES DESDE movie.html
       // ============================================================
 
-      if (edicionExacta) {
+if (edicionExacta) {
 
-// 1. Resetear búsqueda
-  const inputBusqueda = document.getElementById("busqueda");
-  if (inputBusqueda) inputBusqueda.value = "";
+  // 1. Resetear búsqueda
+  inputBusqueda.value = "";
+  localStorage.removeItem("catalogo_busqueda");
 
   // 2. Resetear selects
-  const selectGenero = document.getElementById("filtro-genero");
-  const selectFormato = document.getElementById("filtro-formato");
-  const selectSaga = document.getElementById("filtro-saga");
+  filtroGenero.value = "";
+  filtroFormato.value = "";
+  filtroDirector.value = "";
+  filtroAño.value = "";
+  ordenarPor.value = "";
 
-  if (selectGenero) selectGenero.value = "";
-  if (selectFormato) selectFormato.value = "";
-  if (selectSaga) selectSaga.value = "";
+  localStorage.removeItem("catalogo_genero");
+  localStorage.removeItem("catalogo_formato");
+  localStorage.removeItem("catalogo_director");
+  localStorage.removeItem("catalogo_año");
+  localStorage.removeItem("catalogo_orden");
 
-  // 3. Resetear variables internas de filtros (si las usas)
-  tituloBuscado = "";
-  generoSeleccionado = "";
-  formatoSeleccionado = "";
-  sagaSeleccionada = "";
+  // 3. Resetear estado interno
+  peliculasFiltradas = [...peliculas];
 
-        
-        peliculasFiltradas = peliculas.filter(p => p.titulo === edicionExacta);
-        renderizarCatalogo();
-        return;
-      }
+  // 4. Aplicar filtro exacto
+  peliculasFiltradas = peliculas.filter(p => p.titulo === edicionExacta);
+
+  // 5. Renderizar
+  renderizarCatalogo();
+  return;
+}
 
       if (tituloBuscado) {
         aplicarFiltros();
@@ -446,4 +449,5 @@ document.addEventListener("DOMContentLoaded", () => {
   cargarPeliculas();
 
 });
+
 
