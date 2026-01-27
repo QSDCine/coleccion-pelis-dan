@@ -425,6 +425,19 @@ if (edicionExacta) {
   // ============================================================
 
   document.getElementById("btn-volver-index").addEventListener("click", () => {
+
+      // Reset total del catálogo
+  localStorage.removeItem("catalogo_busqueda");
+  localStorage.removeItem("catalogo_genero");
+  localStorage.removeItem("catalogo_formato");
+  localStorage.removeItem("catalogo_director");
+  localStorage.removeItem("catalogo_año");
+  localStorage.removeItem("catalogo_orden");
+  localStorage.removeItem("catalogo_vista");
+
+  sessionStorage.removeItem("catalogo_saga");
+
+    
     window.location.href = "index.html";
   });
 
@@ -457,6 +470,7 @@ if (edicionExacta) {
   cargarPeliculas();
 
 });
+
 
 
 
