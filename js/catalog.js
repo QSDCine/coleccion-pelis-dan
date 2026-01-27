@@ -134,6 +134,27 @@ document.addEventListener("DOMContentLoaded", () => {
       // ============================================================
 
       if (edicionExacta) {
+
+// 1. Resetear búsqueda
+  const inputBusqueda = document.getElementById("busqueda");
+  if (inputBusqueda) inputBusqueda.value = "";
+
+  // 2. Resetear selects
+  const selectGenero = document.getElementById("filtro-genero");
+  const selectFormato = document.getElementById("filtro-formato");
+  const selectSaga = document.getElementById("filtro-saga");
+
+  if (selectGenero) selectGenero.value = "";
+  if (selectFormato) selectFormato.value = "";
+  if (selectSaga) selectSaga.value = "";
+
+  // 3. Resetear variables internas de filtros (si las usas)
+  tituloBuscado = "";
+  generoSeleccionado = "";
+  formatoSeleccionado = "";
+  sagaSeleccionada = "";
+
+        
         peliculasFiltradas = peliculas.filter(p => p.titulo === edicionExacta);
         renderizarCatalogo();
         return;
@@ -425,3 +446,4 @@ document.addEventListener("DOMContentLoaded", () => {
   cargarPeliculas();
 
 });
+
